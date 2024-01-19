@@ -1,0 +1,142 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    position: fixed;
+    height: 100%;
+    width: 300px;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    padding-top: 20px;
+    background-color: rgb(66, 61, 61);
+}
+nav > header > h1 {
+    color: white;
+    text-align: center;
+}
+nav a {
+    text-decoration: none;
+    font-size: 22px;
+    display: block;
+    padding: 20px 16px;
+    color: rgb(206, 194, 194);
+}
+nav a:hover {
+    background-color: white;
+    color: hotpink;
+}
+
+main {
+    margin-left:  320px;
+    font-size: 22px;
+    padding: 10px 15px;
+    position: relative;
+    top: 0px;
+    width: calc(100%-320px);
+}
+main .main-section {
+    margin: 10px 6px 10px 0;
+
+
+}
+h3 {
+    border-top: 1px solid grey;
+    margin: 10px 0;
+    padding-top: 20px;
+}
+h2 {
+    margin-top: 10px;
+    position: relative;
+    text-align: center;
+}
+p, pre {
+    line-height: 34px;
+    margin: 10px 0 0 0;
+}
+ul, ol {
+    margin: 10px 0 10px 30px;
+}
+ul, ol > li {
+    padding: 5px 0 5px 5px;
+}
+ code {
+    background-color: antiquewhite;
+    position: relative;
+    left: 80px;
+    display: block;
+    padding: 10px;
+    border-radius: 10px;
+    
+    
+}
+code > pre {
+    background-color: antiquewhite;
+    padding: 20px;
+    border-radius: 20px;
+}
+main > .nav_button {
+    width: 500px;
+    height: 100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.prev_button {
+    font-size: 20px;
+    padding: 10px 20px;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    background-color: antiquewhite;
+    cursor: pointer;
+}
+.next_button {
+    font-size: 20px;
+    padding: 10px 20px;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    background-color: antiquewhite;
+    cursor: pointer;
+}
+.prev_button:hover {
+    background-color: black;
+    color: white;
+}
+.next_button:hover {
+    background-color: black;
+    color: white;
+}
+@media only screen and (max-width: 1200px) {
+    nav {
+        display: none;
+    }   
+    main {
+        width: 100%;
+        margin: 0;
+        overflow-x: hidden;
+    }
+    body {
+        font-size: 20px;
+    }
+    code > pre {
+            white-space: pre-wrap;
+            overflow-x: hidden; 
+            width: 100%; 
+            position: relative;
+            left: 0;
+    }
+    code {
+        white-space: pre-wrap;
+        overflow-x: hidden; 
+        width: 100%; 
+        position: relative;
+        left: 20px;
+        margin: 10px 0 10px 0;
+    }
+}

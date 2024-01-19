@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NodeJS Documentation</title>
+    <link rel="stylesheet" href="indez.css">
+</head>
+<body>
+    <!--side_nav_bar-->
+    <nav id="navbar">
+        <header>
+            <h1>Node.js Documentation</h1>
+        </header>
+        <a href="#Node.js_Intro" class="nav-link">Node.js Intro</a>
+        <a href="#Node.js_Get_Started" class="nav-link">Node.js Get Started</a>
+        <a href="#Node.js_Module" class="nav-link">Node.js Module</a>
+        <a href="#Node.js_HTTP_Module" class="nav-link">Node.js HTTP Module</a>
+        <a href="#Node.js_File_System" class="nav-link">Node.js File System</a>
+        <a href="#Node.js_URL_Module" class="nav-link">Node.js URL Module</a>
+        <a href="#Node.js_NPM" class="nav-link">Node.js NPM</a>
+        <a href="#Node.js_Events" class="nav-link">Node.js Events</a>
+        <a href="#Node.js_Upload_File" class="nav-link">Node.js Upload File</a>
+        <a href="#Node.js_Email" class="nav-link">Node.js Email</a>
+    </nav>
+
+    <!--all section-->
+    <main id="main-doc">
+        <section class="main-section sect" id="Node.js_Intro">
+          <header >
+            <h2>Node.js Intro</h2>
+          </header>
+          <div class="section-content">
+          <h3>What is Node.js?</h3>
+
+          <ul>
+            <li>Node.js is an open source server environment</li>
+            <li>Node.js is free</li>
+            <li>Node.js runs on various platforms (Windows, Linux, Unix, Mac OS X, etc.)</li>
+            <li>Node.js uses JavaScript on the server</li>
+          </ul>
+
+          <h3>Why Node.js?</h3>
+          <p><span style="background-color: rgb(216, 134, 134); display: block;"><b>Node.js uses asynchronous programming!</b></span></p>
+          <p>A common task for a web server can be to open a file on the server and return the content to the client.<br>
+          Here is how PHP or ASP handles a file request:</p>
+
+          <ol>
+            <li>Sends the task to the computer's file system.</li>
+            <li>Waits while the file system opens and reads the file.</li>
+            <li>Returns the content to the client.</li>
+            <li>Ready to handle the next request.</li>
+          </ol>
+           
+          <p>Here is how Node.js handles a file request:</p>
+
+          <ol>
+            <li>Sends the task to the computer's file system.</li>
+            <li>Ready to handle the next request.</li>
+            <li>When the file system has opened and read the file, the server returns the content to the client.</li>
+          </ol>
+
+          <p>Node.js eliminates the waiting, and simply continues with the next request. <br><br>
+            Node.js runs single-threaded, non-blocking, asynchronous programming, which is very memory efficient. </p><br>
+
+            <h3>What Can Node.js Do?</h3>
+
+            <ul>
+                <li>Node.js can generate dynamic page content</li>
+                <li>Node.js can create, open, read, write, delete, and close files on the server</li>
+                <li>Node.js can collect form data</li>
+                <li>Node.js can add, delete, modify data in your database</li>
+            </ul>
+             
+            <h3>What is a Node.js File?</h3>
+            <ul>
+                <li>Node.js files contain tasks that will be executed on certain events</li>
+                <li>A typical event is someone trying to access a port on the server</li>
+                <li>Node.js files must be initiated on the server before having any effect</li>
+                <li>Node.js files have extension ".js"</li>
+            </ul>
+        </div>
+        </section>
+
+        <section class="main-section sect" id="Node.js_Get_Started">
+            <header>
+                <h2>Node.js Get Started</h2>
+            </header>
+            <div class="section-content">
+                <h3>Download Node.js</h3>
+                <p>The official Node.js website has installation instructions for Node.js: <a href=" https://nodejs.org">https://nodejs.org</a></p>
+
+                <h3>Getting Started</h3>
+                <p>Once you have downloaded and installed Node.js on your computer, let's try to display "Hello World" in a web browser. <br>
+
+                    Create a Node.js file named "myfirst.js", and add the following code:</p>
+                    <code>
+                        <pre>var http = require('http');
+
+                            http.createServer(function (req, res) {
+                              res.writeHead(200, {'Content-Type': 'text/html'});
+                              res.end('Hello World!');
+                            }).listen(8080);</pre>
+                    </code>
+                    <p>Save the file on your computer: C:\Users\Your Name\myfirst.js <br><br>
+                        The code tells the computer to write "Hello World!" if anyone (e.g. a web browser) tries to access your computer on port 8080. <br><br>
+                        For now, you do not have to understand the code. It will be explained later.
+                        </p>
+
+                        <h3>Command Line Interface</h3>
+                        <p>Node.js files must be initiated in the "Command Line Interface" program of your computer. <br>
+
+                            How to open the command line interface on your computer depends on the operating system. For Windows users, press the start button and look for "Command Prompt", or simply write "cmd" in the search field. <br>
+                            
+                            Navigate to the folder that contains the file "myfirst.js", the command line interface window should look something like this:</p>
+
+                            <code>C:\Users\Your Name>_</code>
+
+                            <h3>Initiate the Node.js File</h3>
+                            <p>The file you have just created must be initiated by Node.js before any action can take place. <br>
+
+                                Start your command line interface, write <i>node myfirst.js</i> and hit enter:</p>
+                                <code>
+                                    <pre>Initiate "myfirst.js":
+
+                                        C:\Users\Your Name>node myfirst.js</pre>
+                                </code>
+
+                                <p>Now, your computer works as a server! <br><br>
+                                    If anyone tries to access your computer on port 8080, they will get a "Hello World!" message in return! <br><br> 
+                                    Start your internet browser, and type in the address: <a href="http://localhost:8080">http://localhost:8080</a></p>
+            </div>
+        </section>
+
+        <section class="main-section sect" id="Node.js_Module">
+            <header>
+                <h2>
+                    Node.js Module
+                </h2>
+            </header>
+            <div class="section-content">
+                <h3>What is a Module in Node.js?</h3>
+                <p>Consider modules to be the same as JavaScript libraries. <br>
+
+                    A set of functions you want to include in your application.</p>
+                <h3>Built-in Modules</h3>
+                <p>Node.js has a set of built-in modules which you can use without any further installation. <br>
+
+                    Look at our Built-in Modules Reference for a complete list of modules.</p>  
+                <h3>Include Modules</h3>
+                <p>To include a module, use the <span style="color: red;">require()</span> function with the name of the module:</p>  
+                
+                <code>var http = require('http');</code>
+                
+                <p>Now your application has access to the HTTP module, and is able to create a server:</p>
+                <code>
+                    <pre>http.createServer(function (req, res) {
+                        res.writeHead(200, {'Content-Type': 'text/html'});
+                        res.end('Hello World!');
+                      }).listen(8080);</pre>
+                </code>
+
+                <h3>Create Your Own Modules</h3>
+                <pre>You can create your own modules, and easily include them in your applications.
+
+                    The following example creates a module that returns a date and time object:</pre>
+
+                <code>
+                    <pre>exports.myDateTime = function () {
+                        return Date();
+                      };</pre>
+                </code>
+                 <p>Use the exports keyword to make properties and methods available outside the module file. <br><br>
+                    Save the code above in a file called "myfirstmodule.js"</p>
+
+                <code>
+                    <pre>var http = require('http');
+                        var dt = require('./myfirstmodule');
+                        
+                        http.createServer(function (req, res) {
+                          res.writeHead(200, {'Content-Type': 'text/html'});
+                          res.write("The date and time are currently: " + dt.myDateTime());
+                          res.end();
+                        }).listen(8080);</pre>
+                </code>   
+
+                <p>Notice that we use <span style="color: red;">./</span> to locate the module, that means that the module is located in the same folder as the Node.js file.
+
+                    Save the code above in a file called "demo_module.js", and initiate the file:</p>
+
+                    <code>
+                        <pre>Initiate demo_module.js:
+
+                            C:\Users\Your Name>node demo_module.js</pre>
+                    </code>
+
+                <p>If you have followed the same steps on your computer, you will see the same result as the example: <a href="http://localhost:8080">http://localhost:8080</a></p>
+            </div>
+        </section>
+
+        <section class="main-section sect" id="Node.js_HTTP_Module">
+            <header>
+                <h2>Node.js HTTP Module</h2>
+            </header>
+
+            <div class="section-content">
+                <h3>The Built-in HTTP Module</h3>
+                <p>Node.js has a built-in module called HTTP, which allows Node.js to transfer data over the Hyper Text Transfer Protocol (HTTP). <br><br>
+                    To include the HTTP module, use the require() method:</p>
+
+                <code>var http = require('http');</code>
+
+                <h3>Node.js as a Web Server</h3>
+                <p>The HTTP module can create an HTTP server that listens to server ports and gives a response back to the client. <br><br>
+                    Use the createServer() method to create an HTTP server:</p>
+
+                <code>
+                    <pre>ExampleGet your own Node.js Server
+                        var http = require('http');
+                        
+                        //create a server object:
+                        http.createServer(function (req, res) {
+                          res.write('Hello World!'); //write a response to the client
+                          res.end(); //end the response
+                        }).listen(8080); //the server object listens on port 8080</pre>
+                </code>
+                
+                <pre>The function passed into the http.createServer() method, will be executed when someone tries to access the computer on port 8080.
+
+                Save the code above in a file called "demo_http.js", and initiate the file:</pre>
+                
+                <code>
+                    <pre>Initiate demo_http.js:
+
+                        C:\Users\Your Name>node demo_http.js</pre>
+                </code>
+
+                <p>If you have followed the same steps on your computer, you will see the same result as the example: http://localhost:8080</p>
+
+                <h3>Add an HTTP Header</h3>
+
+                <p>If the response from the HTTP server is supposed to be displayed as HTML, you should include an HTTP header with the correct content type:</p>
+                
+                <code>
+                    <pre>Example
+                        var http = require('http');
+                        http.createServer(function (req, res) {
+                          res.writeHead(200, {'Content-Type': 'text/html'});
+                          res.write('Hello World!');
+                          res.end();
+                        }).listen(8080);
+                        </pre>
+                </code>
+
+                <p>The first argument of the res.writeHead() method is the status code, 200 means that all is OK, the second argument is an object containing the response headers.</p>
+
+                <h3>Read the Query String</h3>
+
+                <p>The function passed into the <span style="color: red;">http.createServer()</span> has a  <span style="color: red;">req</span> argument that represents the request from the client, as an object (http.IncomingMessage object).
+                   <br><br>
+                    This object has a property called "url" which holds the part of the url that comes after the domain name:</p>
+
+                <code>
+                    <pre>demo_http_url.js
+
+                        var http = require('http');
+                        http.createServer(function (req, res) {
+                          res.writeHead(200, {'Content-Type': 'text/html'});
+                          res.write(req.url);
+                          res.end();
+                        }).listen(8080);</pre>
+                </code>
+
+                <p>Save the code above in a file called "demo_http_url.js" and initiate the file:</p>
+
+                <code>
+                    <pre>Initiate demo_http_url.js:
+
+                        C:\Users\Your Name>node demo_http_url.js</pre>
+                </code>
+
+                <pre>If you have followed the same steps on your computer, you should see two different results when opening these two addresses:
+
+                    http://localhost:8080/summer</pre>
+
+                <code>
+                    <pre>Will produce this result:
+
+                        /summer</pre>
+                </code>
+
+                <p>http://localhost:8080/winter</p>
+
+                <code>
+                    <pre>Will produce this result:
+
+                        /winter</pre>
+                </code>
+
+                <h3>Split the Query String</h3>
+                <p>There are built-in modules to easily split the query string into readable parts, such as the URL module.</p>
+
+                <code>
+                    <pre>Example
+                        Split the query string into readable parts:
+                        
+                        var http = require('http');
+                        var url = require('url');
+                        
+                        http.createServer(function (req, res) {
+                          res.writeHead(200, {'Content-Type': 'text/html'});
+                          var q = url.parse(req.url, true).query;
+                          var txt = q.year + " " + q.month;
+                          res.end(txt);
+                        }).listen(8080);</pre>
+                </code>
+
+                <p>Save the code above in a file called "demo_querystring.js" and initiate the file:</p>
+
+                <code>
+                    <pre>Initiate demo_querystring.js:
+
+                        C:\Users\Your Name>node demo_querystring.js</pre>
+                </code>
+
+                <pre>The address:
+
+                    http://localhost:8080/?year=2017&month=July</pre>
+
+                <code>
+                    <pre>Will produce this result:
+
+                        2017 July</pre>
+                </code>
+
+                <p>Read more about the URL module in the Node.js URL Module chapter.</p>
+            </div>
+        </section>
+
+        <section class="main-section sect" id="Node.js_File_System">
+            <header>
+                <h2>Node.js File System</h2>
+            </header>
+
+            <div class="section-content">
+                <h3>Node.js as a File Server</h3>
+                 <p>The Node.js file system module allows you to work with the file system on your computer. <br><br>
+
+                    To include the File System module, use the require() method:</p>
+
+                <code>var fs = require('fs');</code>
+
+                <p>Common use for the File System module:</p>
+                <ul>
+                    <li>Read files</li>
+                    <li>Create files</li>
+                    <li>update files</li>
+                    <li>Delete files</li>
+                    <li>Rename files</li>
+                </ul>
+
+                <h3>Read Files</h3>
+                <p>The <span style="color: red;">fs.readFile()</span> method is used to read files on your computer. <br><br>
+
+                    Assume we have the following HTML file (located in the same folder as Node.js):</p>
+                    
+                <code>
+                    <pre>demofile1.html
+
+                        <html>
+                        <body>
+                        <h1>My Header</h1>
+                        <p>My paragraph.</p>
+                        </body>
+                        </html></pre>
+                </code>
+
+                <p>Create a Node.js file that reads the HTML file, and return the content:</p>
+
+                <code>
+                    <pre>ExampleGet your own Node.js Server
+                        var http = require('http');
+                        var fs = require('fs');
+                        http.createServer(function (req, res) {
+                          fs.readFile('demofile1.html', function(err, data) {
+                            res.writeHead(200, {'Content-Type': 'text/html'});
+                            res.write(data);
+                            return res.end();
+                          });
+                        }).listen(8080);</pre>
+                </code>
+
+                <p>Save the code above in a file called "demo_readfile.js", and initiate the file:</p>
+
+                <code>
+                    <pre>Initiate demo_readfile.js:
+
+                        C:\Users\Your Name>node demo_readfile.js</pre>
+                </code>
+
+                <p>If you have followed the same steps on your computer, you will see the same result as the example: <a href="http://localhost:8080">http://localhost:8080</a>
+                </p>
+
+                <h3>Create Files</h3>
+                <p>The File System module has methods for creating new files:</p>
+
+                <ul>
+                    <li><span style="color: red;">fs.appendFile()</span></li>
+                    <li><span style="color: red;">fs.open()</span></li>
+                    <li><span style="color: red;">fs.writeFile()</span></li>
+                </ul>
+
+                <p>The <span style="color: red;">fs.appendFile()</span> method appends specified content to a file. If the file does not exist, the file will be created:</p>
+
+                <code>
+                    <pre>Example
+                        Create a new file using the appendFile() method:
+                        
+                        var fs = require('fs');
+                        
+                        fs.appendFile('mynewfile1.txt', 'Hello content!', function (err) {
+                          if (err) throw err;
+                          console.log('Saved!');
+                        });</pre>
+                </code>
+
+                <p>The <span style="color: red;">fs.open()</span> method takes a "flag" as the second argument, if the flag is "w" for "writing", the specified file is opened for writing. If the file does not exist, an empty file is created:</p>
+
+                <code>
+                    <pre>Example
+                        Create a new, empty file using the open() method:
+                        
+                        var fs = require('fs');
+                        
+                        fs.open('mynewfile2.txt', 'w', function (err, file) {
+                          if (err) throw err;
+                          console.log('Saved!');
+                        });</pre>
+                </code>
+           
+                <h3>Update Files</h3>
+                <p>The File System module has methods for updating files:</p>
+                <ul>
+                    <li><span style="color: red;">fs.appendFile()</span></li>
+                    <li><span style="color: red;">fs.writeFile()</span></li>
+                </ul>
+
+                <p>The <span style="color: red;">fs.appendFile()</span> method appends the specified content at the end of the specified file:</p>
+                <code>
+                    <pre>Example
+                        Append "This is my text." to the end of the file "mynewfile1.txt":
+                        
+                        var fs = require('fs');
+                        
+                        fs.appendFile('mynewfile1.txt', ' This is my text.', function (err) {
+                          if (err) throw err;
+                          console.log('Updated!');
+                        });
+                        </pre>
+                </code>
+
+                <p>The <span style="color: red;">fs.writeFile()</span> method replaces the specified file and content:</p>
+
+                <code>
+                    <pre>Example
+                        Replace the content of the file "mynewfile3.txt":
+                        
+                        var fs = require('fs');
+                        
+                        fs.writeFile('mynewfile3.txt', 'This is my text', function (err) {
+                          if (err) throw err;
+                          console.log('Replaced!');
+                        });
+                        </pre>
+                </code>
+
+                <h3>Delete Files</h3>
+                <p>To delete a file with the File System module,  use the <span style="color: red;">fs.unlink()</span> method. <br><br>
+                    The fs.unlink() method deletes the specified file:</p>
+                
+                <code>
+                    <pre>Example
+                        Delete "mynewfile2.txt":
+                        
+                        var fs = require('fs');
+                        
+                        fs.unlink('mynewfile2.txt', function (err) {
+                          if (err) throw err;
+                          console.log('File deleted!');
+                        });</pre>
+                </code>
+
+                <h3>Rename Files</h3>
+                <pre>To rename a file with the File System module,  use the <span style="color: red;">fs.rename()</span> method.
+
+                    The <span style="color: red;">fs.rename()</span> method renames the specified file:</pre>
+
+                <code>
+                    <pre>Example
+                        Rename "mynewfile1.txt" to "myrenamedfile.txt":
+                        
+                        var fs = require('fs');
+                        
+                        fs.rename('mynewfile1.txt', 'myrenamedfile.txt', function (err) {
+                          if (err) throw err;
+                          console.log('File Renamed!');
+                        });</pre>
+                </code>
+            </div>
+        </section>
+
+        <section class="main-section sect" id="Node.js_URL_Module">
+            <header>
+                <h2>Node.js URL Module</h2>
+            </header>
+
+            <div class="section-content">
+                <h3>The Built-in URL Module</h3>
+                <p>The URL module splits up a web address into readable parts. <br>To include the URL module, use the <span style="color: red;">require()</span> method:</p>
+                
+                <code>
+                    var url = require('url');
+                </code>
+
+                <p>Parse an address with the <span style="color: red;">url.parse()</span> method, and it will return a URL object with each part of the address as properties:</p>
+                <code>
+                    <pre>Example Get your own Node.js Server
+
+                        Split a web address into readable parts: <br>
+                        
+                        var url = require('url');
+                        var adr = 'http://localhost:8080/default.htm?year=2017&month=february';
+                        var q = url.parse(adr, true);
+                        
+                        console.log(q.host); //returns 'localhost:8080'
+                        console.log(q.pathname); //returns '/default.htm'
+                        console.log(q.search); //returns '?year=2017&month=february'
+                        
+                        var qdata = q.query; //returns an object: { year: 2017, month: 'february' }
+                        console.log(qdata.month); //returns 'february'
+                        </pre>
+                </code>
+
+                <p>Remember to initiate the file:</p>
+
+                <code>
+                    <pre>Initiate demo_fileserver.js: <br>
+
+                        C:\Users\Your Name>node demo_fileserver.js</pre>
+                </code>
+
+                <p>If you have followed the same steps on your computer, you should see two different results when opening these two addresses:
+                    <br>
+                    <a href="http://localhost:8080/summer.html">http://localhost:8080/summer.html</a>
+                    </p>
+
+                    <code>
+                        <pre>Will produce this result:
+                            <span style="font-size: 40px;">Summer</span>
+                            I love the sun!</pre>
+                    </code>
+
+                    <a href="http://localhost:8080/winter.html">http://localhost:8080/winter.html</a>
+
+                    <code>
+                        <pre>Will produce this result:
+
+                            <span style="font-size: 40px;">Winter</span>
+                            I love the snow!</pre>
+                    </code>
+            </div>
+        </section>
+
+        <section class="main-section sect" id="Node.js_NPM">
+            <header>
+                <h2>
+                    Node.js NPM
+                </h2>
+            </header>
+
+            <div class="section-content">
+                <h3>What is NPM?</h3>
+
+                <p>NPM is a package manager for Node.js packages, or modules if you like. <br><br>
+                    www.npmjs.com hosts thousands of free packages to download and use. <br><br>
+                    The NPM program is installed on your computer when you install Node.js</p>
+                
+                <p><span style="background-color: rgb(209, 209, 148);">NPM is already ready to run on your computer!</span></p>
+
+                <h3>What is a Package?</h3>
+                <pre>A package in Node.js contains all the files you need for a module.
+
+                    Modules are JavaScript libraries you can include in your project.</pre>
+                
+                <h3>Download a Package</h3>
+                <pre>Downloading a package is very easy.
+
+                    Open the command line interface and tell NPM to download the package you want.
+                    
+                    I want to download a package called "upper-case":</pre>
+
+                <code>
+                    <pre>Download "upper-case":
+
+                        C:\Users\Your Name>npm install upper-case</pre>
+                </code>
+
+                <p>Now you have downloaded and installed your first package!
+                   <br>
+                    NPM creates a folder named "node_modules", where the package will be placed. All packages you install in the future will be placed in this folder.
+                    <br>
+                    My project now has a folder structure like this:
+                    <br>
+                   <span style="color: red;"> C:\Users\My Name\node_modules\upper-case</span>
+                    </p>
+                
+                <h3>Using a Package</h3>
+                <p>Once the package is installed, it is ready to use.
+                   <br><br>
+                    Include the "upper-case" package the same way you include any other module:</p>
+        
+                <code>var uc = require('upper-case');</code>
+
+                <p>Create a Node.js file that will convert the output "Hello World!" into upper-case letters:</p>
+
+                <code>
+                    <pre>Example
+                        var http = require('http');
+                        var uc = require('upper-case');
+                        http.createServer(function (req, res) {
+                          res.writeHead(200, {'Content-Type': 'text/html'});
+                          res.write(uc.upperCase("Hello World!"));
+                          res.end();
+                        }).listen(8080);</pre>
+                </code>
+
+                <p>Save the code above in a file called "demo_uppercase.js", and initiate the file:</p>
+
+                <code>
+                    <pre>Initiate demo_uppercase:
+
+                        C:\Users\Your Name>node demo_uppercase.js</pre>
+                </code>
+                <p>If you have followed the same steps on your computer, you will see the same result as the example: <a href="http://localhost:8080">http://localhost:8080</a></p>
+            </div>
+        </section>
+
+        <section class="main-section sect" id="Node.js_Events">
+            <header>
+                <h2>Node.js Events</h2>
+            </header>
+
+            <div class="section-content">
+                <p>Node.js is perfect for event-driven applications.
+                </p>
+                <h3>Events in Node.js</h3>
+                <p>Every action on a computer is an event. Like when a connection is made or a file is opened.
+                   <br><br>
+                    Objects in Node.js can fire events, like the readStream object fires events when opening and closing a file:</p>
+
+                <code>
+                    <pre>Example <br>
+                        var fs = require('fs');
+                        var rs = fs.createReadStream('./demofile.txt');
+                        rs.on('open', function () {
+                          console.log('The file is open');
+                        });</pre>
+                </code>
+                
+                <h3>Events Module</h3>
+                <p>Node.js has a built-in module, called "Events", where you can create-, fire-, and listen for- your own events.
+                <br><br>
+                    To include the built-in Events module use the require() method. In addition, all event properties and methods are an instance of an EventEmitter object. To be able to access these properties and methods, create an EventEmitter object:</p>
+                
+                    <code>
+                        <pre>var events = require('events');
+                            var eventEmitter = new events.EventEmitter();
+                            </pre>
+                    </code>
+                    
+                    <h3>The EventEmitter Object</h3>
+                    <p>You can assign event handlers to your own events with the EventEmitter object.
+                        <br><br>
+                        In the example below we have created a function that will be executed when a "scream" event is fired.
+                        <br><br>
+                        To fire an event, use the emit() method.</p>
+        
+                    <code>
+                        <pre>Example <br>
+                            var events = require('events');
+                            var eventEmitter = new events.EventEmitter();
+                            
+                            //Create an event handler:
+                            var myEventHandler = function () {
+                              console.log('I hear a scream!');
+                            }
+                            
+                            //Assign the event handler to an event:
+                            eventEmitter.on('scream', myEventHandler);
+                            
+                            //Fire the 'scream' event:
+                            eventEmitter.emit('scream');</pre>
+            </div>
+            </code>
+        </section>
+
+        <section class="main-section sect" id="Node.js_Upload_File">
+            <header>
+                <h2>Node.js Upload File</h2>
+            </header>
+
+            <div class="section-content">
+                <h3>The Formidable Module</h3>
+
+                <p>There is a very good module for working with file uploads, called "Formidable".
+                    <br><br>
+                    The Formidable module can be downloaded and installed using NPM:</p>
+                
+                <code>C:\Users\Your Name>npm install formidable</code>
+
+                <p>After you have downloaded the Formidable module, you can include the module in any application:</p>
+
+                <code>var formidable = require('formidable');</code>
+
+                <h3>Upload Files</h3>
+                <p>Now you are ready to make a web page in Node.js that lets the user upload files to your computer:</p>
+
+                <h3 style="border: none;">Step 1: Create an Upload Form</h3>
+                <p>Create a Node.js file that writes an HTML form, with an upload field:</p>
+
+                <code>
+                    <pre>Example <br>
+                        This code will produce an HTML form:
+                        
+                        var http = require('http');
+                        
+                        http.createServer(function (req, res) {
+                          res.writeHead(200, {'Content-Type': 'text/html'});
+                          res.write('<form action="fileupload" method="post" enctype="multipart/form-data">');
+                          res.write('<input type="file" name="filetoupload"><br>');
+                          res.write('<input type="submit">');
+                          res.write('</form>');
+                          return res.end();
+                        }).listen(8080);</pre>
+                </code>
+
+                <h3 style="border: none;">Step 2: Parse the Uploaded File</h3>
+                <p>Include the Formidable module to be able to parse the uploaded file once it reaches the server.
+                   <br><br>
+                    When the file is uploaded and parsed, it gets placed on a temporary folder on your computer.</p>
+                
+                <code>
+                    <pre>Example
+                        The file will be uploaded, and placed on a temporary folder:
+                        
+                        var http = require('http');
+                        var formidable = require('formidable');
+                        
+                        http.createServer(function (req, res) {
+                          if (req.url == '/fileupload') {
+                            var form = new formidable.IncomingForm();
+                            form.parse(req, function (err, fields, files) {
+                              res.write('File uploaded');
+                              res.end();
+                            });
+                          } else {
+                            res.writeHead(200, {'Content-Type': 'text/html'});
+                            res.write('<form action="fileupload" method="post" enctype="multipart/form-data">');
+                            res.write('<input type="file" name="filetoupload"><br>');
+                            res.write('<input type="submit">');
+                            res.write('</form>');
+                            return res.end();
+                          }
+                        }).listen(8080);</pre>
+                </code>
+                
+                <h3 style="border: none;">Step 3: Save the File</h3>
+                <p>When a file is successfully uploaded to the server, it is placed on a temporary folder.
+                   <br><br>
+                    The path to this directory can be found in the "files" object, passed as the third argument in the parse() method's callback function.
+                    <br><br>
+                    To move the file to the folder of your choice, use the File System module, and rename the file:</p>
+                
+                <code>
+                    <pre>Example
+                        Include the fs module, and move the file to the current folder:
+                        
+                        var http = require('http');
+                        var formidable = require('formidable');
+                        var fs = require('fs');
+                        
+                        http.createServer(function (req, res) {
+                          if (req.url == '/fileupload') {
+                            var form = new formidable.IncomingForm();
+                            form.parse(req, function (err, fields, files) {
+                              var oldpath = files.filetoupload.filepath;
+                              var newpath = 'C:/Users/Your Name/' + files.filetoupload.originalFilename;
+                              fs.rename(oldpath, newpath, function (err) {
+                                if (err) throw err;
+                                res.write('File uploaded and moved!');
+                                res.end();
+                              });
+                         });
+                          } else {
+                            res.writeHead(200, {'Content-Type': 'text/html'});
+                            res.write('<form action="fileupload" method="post" enctype="multipart/form-data">');
+                            res.write('<input type="file" name="filetoupload"><br>');
+                            res.write('<input type="submit">');
+                            res.write('</form>');
+                            return res.end();
+                          }
+                        }).listen(8080);</pre>
+                </code>
+            </div>
+        </section>
+
+        <section class="main-section sect" id="Node.js_Email">
+            <header>
+                <h2>Node.js Email</h2>
+            </header>
+
+            <div class="section-content">
+                <h3>The Nodemailer Module</h3>
+                <p>The Nodemailer module makes it easy to send emails from your computer.
+                <br><br>
+                    The Nodemailer module can be downloaded and installed using npm:</p>
+                <code>C:\Users\Your Name>npm install nodemailer</code>
+
+                <p>After you have downloaded the Nodemailer module, you can include the module in any application:</p>
+
+                <code>var nodemailer = require('nodemailer');</code>
+
+                <h3>Send an Email</h3>
+                <p>Now you are ready to send emails from your server.
+                   <br><br>
+                    Use the username and password from your selected email provider to send an email. This tutorial will show you how to use your Gmail account to send an email:</p>
+
+                <code>
+                    <pre>ExampleGet your own Node.js Server
+                        var nodemailer = require('nodemailer');
+                        
+                        var transporter = nodemailer.createTransport({
+                          service: 'gmail',
+                          auth: {
+                            user: 'youremail@gmail.com',
+                            pass: 'yourpassword'
+                          }
+                        });
+                        
+                        var mailOptions = {
+                          from: 'youremail@gmail.com',
+                          to: 'myfriend@yahoo.com',
+                          subject: 'Sending Email using Node.js',
+                          text: 'That was easy!'
+                        };
+                        
+                        transporter.sendMail(mailOptions, function(error, info){
+                          if (error) {
+                            console.log(error);
+                          } else {
+                            console.log('Email sent: ' + info.response);
+                          }
+                        });</pre>
+                </code>
+
+                <p>And that's it! Now your server is able to send emails.</p>
+
+                <h3>Multiple Receivers</h3>
+                <p>To send an email to more than one receiver, add them to the "to" property of the mailOptions object, separated by commas:</p>
+
+                <code>
+                    <pre>Example
+                        Send email to more than one address:
+                        
+                        var mailOptions = {
+                          from: 'youremail@gmail.com',
+                          to: 'myfriend@yahoo.com, myotherfriend@yahoo.com',
+                          subject: 'Sending Email using Node.js',
+                          text: 'That was easy!'
+                        }</pre>
+                </code>
+
+                <h3>Send HTML</h3>
+                <p>To send HTML formatted text in your email, use the "html" property instead of the "text" property:</p>
+                <code>
+                    <pre>Example
+                        Send email containing HTML:
+                        
+                        var mailOptions = {
+                          from: 'youremail@gmail.com',
+                          to: 'myfriend@yahoo.com',
+                          subject: 'Sending Email using Node.js',
+                          html: '<h1>Welcome</h1><p>That was easy!</p>'
+                        }</pre>
+                </code>
+            </div>
+        </section> 
+    </div>
+    <!--nav_button-->
+    <div class="nav_button">
+        <button class="prev_button">Prev</button>
+        <button class="next_button">Next</button>
+    </div>
+    </main>
+
+    <script src="main.js"></script>
+</body>
+</html>
